@@ -6,24 +6,21 @@
   Created by Jannis Dohm, 2020-02-12.
   Released under MIT License.
 */
-#ifndef RemscheidMuellParser
-#define RemscheidMuellParser
+#ifndef RemscheidMuellParser_
+#define RemscheidMuellParser_
 
-#include "stdin.h"
 #include "Arduino.h"
 
 class RemscheidMuellParser
 {
     public:
-        RemscheidMuellParser(string DatabaseURL);
-        uint_8 CheckDate(string SearchFor, int day, int month, int year);
+        RemscheidMuellParser(char *DatabaseURL);
+        bool CheckDate(char* SearchFor, int day, int month, int year);
 
     private:
-        string _DatabaseURL;
-        int _CheckDateRekursiv(int StartIndex);
-        File _file;
+        char *_DatabaseURL;
+        String _ToTwoString(int Number);
 };
-
 
 
 #endif //RemscheidMuellParser
